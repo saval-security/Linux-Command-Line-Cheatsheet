@@ -3,6 +3,10 @@ Basic Linux Commands.
 
 A curated list of commonly used linux commands, easily accessible in one location. I have used linux fairly often and am pretty comfortable using most of these commands. However I sometimes forget syntax/options for a particular command, and need to look it up. While most guides I've found under [resources](#resources) provide a lot of great information, the guides always seemed random in nature. I created this guide to attempt to help make some commands easier to read and find, and how they are commonly used (or at least how I've commonly used them). 
 
+**_This is not the end all - be all guide for linux commands. Just some basic/advanced commands, with some options for how to commonly use them._**
+
+---
+
 ## Table of Contents
 
 - [File and Directory Commands](#file-and-directory-commands)
@@ -15,21 +19,29 @@ A curated list of commonly used linux commands, easily accessible in one locatio
   - [Random](#random)
 - [Resources](#resources)
   
+---
 
 ## File and Directory Commands
 **_Some commands for file and directory administration in Linux_**
 
+
 ### File Manipulation
 
-| Command | Description | Man Page |
+| Basic Commands | Description | Man Page |
 | --- | --- | --- |
-| **`cat`** | Displays contents of a file | [Link](http://man7.org/linux/man-pages/man1/cat.1.html) |
-| **`touch`** | Creates empty file | [Link](http://man7.org/linux/man-pages/man1/touch.1.html) |
-| **`cp`** | Copy files through command line. Can also copy full directories | [Link](http://man7.org/linux/man-pages/man1/cp.1.html) |
+| **`cat`** | Displays contents of a file. | [Link](http://man7.org/linux/man-pages/man1/cat.1.html) |
+| **`touch`** | Creates empty file. | [Link](http://man7.org/linux/man-pages/man1/touch.1.html) |
+| **`file`** | Determines and prints out file type | [Link](http://man7.org/linux/man-pages/man1/file.1.html) |
+| **`cp`** | Copy files through command line. Can also copy full directories. | [Link](http://man7.org/linux/man-pages/man1/cp.1.html) |
 | **`mv`** | Moves file to a different location. Also used for renaming files. | [Link](http://man7.org/linux/man-pages/man1/mv.1.html) |
 | **`rm`** | Removes file. Can also be used to remove entire directories. | [Link](http://man7.org/linux/man-pages/man1/rm.1.html) |
-| **`locate`** | Locates file on system based on a database. Will need to use **`updatedb`** if file was created after last database update | [Link](http://man7.org/linux/man-pages/man1/locate.1.html) |
-| **`nano`** & **`vi`** | Text editors built into linux command line | none |
+| **`locate`** | Locates file on system based on the file name database. Will need to use **`updatedb`** if file was created after last database update. | [Link](http://man7.org/linux/man-pages/man1/locate.1.html) |
+| **`updatedb`** | Command for updating file name database. | [Link](http://man7.org/linux/man-pages/man1/updatedb.1.html) |
+| **`nano`** & **`vi`** | Text editors built into linux command line. | none |
+
+| Advanced Commands | Description | Man Page |
+| --- | --- | --- |
+
 
 #### Examples
 
@@ -49,7 +61,14 @@ touch new_screts.txt          #creates empty txt file called new_secrets.txt
 
 | Command | Common Options |
 | --- | --- |
-| **`cp`** | -r  Copies directories recursively<br>-T  Treat destination as normal file | 
+| **`file`** | Commonly used without any options |
+```bash
+file screts.txt               #prints out the file type of secrets.txt
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`cp`** | -r   Copies directories recursively<br>-T   Treat destination as normal file | 
 ```bash
 #first argument is the file being copied, second argument is where to copy the file
 cp secrets.txt secrets2.txt           #creates a copy of secrets.txt, named secrets2.txt, in current working directory
@@ -68,11 +87,26 @@ mv secrets.txt /root/Desktop          #moves secrets.txt to /root/Desktop direct
 
 | Command | Common Options |
 | --- | --- |
-| **`rm`** | -r  Removes directories and their contents recursively<br>-f  Force removes file |
+| **`rm`** | -r  Removes directories and their contents recursively <br>-f  Force removes file |
 ```bash
 rm secrets.txt                        #deletes the file secrets.txt
 rm -r /root/newdir                    #deletes the directory /root/newdir and all its contents
 rm -rf /root/newdir                   #force removes the entire directory /root/newdir
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`locate`** | -i   Ignores case <br> |
+```bash
+locate secrets.txt            #will search file name database for files with secrets.txt in name
+locate -i screts.txt          #will search file name database for any file, regardless of case, with secrets.txt in name
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`updatedb`** | Commonly used without any options |
+```bash
+updatedb                      #updates file name database for locate
 ```
 
 **`nano`** & **`vi`**
@@ -82,15 +116,17 @@ vi                            #opens vi editor
 nano secrets.txt              #opens nano editor for file name secrets.txt
 ```
 
+---
+
 ### Directory Commands and Traversal 
 
 | Command | Description | Man Page |
 | --- | --- | --- |
-| **`pwd`** | Displays current working directory | [Link](http://man7.org/linux/man-pages/man1/pwd.1.html) |
-| **`cd`** | Traverse to specific directory | none |
-| **`ls`** | Prints directories and files in a directory | [Link](http://man7.org/linux/man-pages/man1/ls.1.html) |
-| **`mkdir`** | Creates directory | [Link](http://man7.org/linux/man-pages/man1/mkdir.1.html) |
-| **`rmdir`** | Removes empty directory | [Link](http://man7.org/linux/man-pages/man1/rmdir.1.html) |
+| **`pwd`** | Displays current working directory. | [Link](http://man7.org/linux/man-pages/man1/pwd.1.html) |
+| **`cd`** | Traverse to specific directory. | none |
+| **`ls`** | Prints directories and files in a directory. | [Link](http://man7.org/linux/man-pages/man1/ls.1.html) |
+| **`mkdir`** | Creates directory. | [Link](http://man7.org/linux/man-pages/man1/mkdir.1.html) |
+| **`rmdir`** | Removes empty directory. | [Link](http://man7.org/linux/man-pages/man1/rmdir.1.html) |
 
 #### Examples
 
@@ -127,11 +163,15 @@ rmdir folder1                 #removes empty directory 'folder1' in current dire
 rmdir /root/Desktop/folder1   #removes empty directory 'folder1' under /root/Desktop
 ```
 
+---
+
 ## System Commands
 **_Some commands used for system and network information._**
 
 ### System
 
+
+---
 
 ### Root Privilege
 
@@ -146,8 +186,12 @@ su                            #elevate access to root
 sudo passwd                   #set new root password
 ```
 
+---
+
 ### Networking
 
+
+---
 
 ### Random
 
@@ -169,6 +213,7 @@ Using **`Ctrl+C`** will safely stop current execution
 
 Using **`Ctrl+Z`** will force stop current execution
 
+---
 
 ## Resources
 
