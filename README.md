@@ -10,8 +10,8 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 ## Table of Contents
 
 - [File and Directory Commands](#file-and-directory-commands)
-  - [File Manipulation](#file-manipulation)
-  - [Directory Commands and Traversal](#directory-commands-and-traversal)
+  - [File Administration](#file-Administration)
+  - [File Systems](#file-systems)
 - [System Commands](#system-commands)
   - [System](#system)
   - [Root Privilege](#root-privilege)
@@ -21,26 +21,34 @@ A curated list of commonly used linux commands, easily accessible in one locatio
   
 ---
 
-## File and Directory Commands
+## File & Directory Commands
 **_Some commands for file and directory administration in Linux_**
 
 
-### File Manipulation
+### File Administration
 
 | Basic Commands | Description | Man Page |
 | --- | --- | --- |
 | **`cat`** | Displays contents of a file. | [Link](http://man7.org/linux/man-pages/man1/cat.1.html) |
+| **`less`** | | [Link]() |
 | **`touch`** | Creates empty file. | [Link](http://man7.org/linux/man-pages/man1/touch.1.html) |
 | **`file`** | Determines and prints out file type | [Link](http://man7.org/linux/man-pages/man1/file.1.html) |
 | **`cp`** | Copy files through command line. Can also copy full directories. | [Link](http://man7.org/linux/man-pages/man1/cp.1.html) |
 | **`mv`** | Moves file to a different location. Also used for renaming files. | [Link](http://man7.org/linux/man-pages/man1/mv.1.html) |
 | **`rm`** | Removes file. Can also be used to remove entire directories. | [Link](http://man7.org/linux/man-pages/man1/rm.1.html) |
-| **`locate`** | Locates file on system based on the file name database. Will need to use **`updatedb`** if file was created after last database update. | [Link](http://man7.org/linux/man-pages/man1/locate.1.html) |
-| **`updatedb`** | Command for updating file name database. | [Link](http://man7.org/linux/man-pages/man1/updatedb.1.html) |
+| **`echo`** | | [Link]() |
 | **`nano`** & **`vi`** | Text editors built into linux command line. | none |
 
 | Advanced Commands | Description | Man Page |
 | --- | --- | --- |
+| **`ln`** | | [Link]() |
+| **`chmod`** | | [Link]() |
+| **`chown`** | | [Link]() |
+| **`gzip`** | | [Link]() |
+| **`tar`** | | [Link]() |
+| **`zip`** | | [Link]() |
+| **`unzip`** | | [Link]() |
+| **`diff`** | | [Link]() |
 
 
 #### Examples
@@ -50,6 +58,13 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 | **`cat`** | Commonly used without any options |
 ```bash
 cat secrets.txt               #prints contents of secrets.txt
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`less`** |  |
+```bash
+
 ```
 
 | Command | Common Options |
@@ -96,6 +111,150 @@ rm -rf /root/newdir                   #force removes the entire directory /root/
 
 | Command | Common Options |
 | --- | --- |
+| **`echo`** |  |
+```bash
+
+```
+
+**`nano`** & **`vi`**
+```bash
+nano                          #opens nano editor
+vi                            #opens vi editor
+nano secrets.txt              #opens nano editor for file name secrets.txt
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`ln`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`chmod`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`chown`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`gzip`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`tar`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`zip`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`unzip`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`diff`** |  |
+```bash
+
+```
+
+---
+
+### File Systems 
+
+| Basic Commands | Description | Man Page |
+| --- | --- | --- |
+| **`pwd`** | Displays current working directory. | [Link](http://man7.org/linux/man-pages/man1/pwd.1.html) |
+| **`cd`** | Traverse to specific directory. | none |
+| **`ls`** | Prints directories and files in a directory. | [Link](http://man7.org/linux/man-pages/man1/ls.1.html) |
+| **`lsof`** | | [Link]() |
+| **`mkdir`** | Creates directory. | [Link](http://man7.org/linux/man-pages/man1/mkdir.1.html) |
+| **`rmdir`** | Removes empty directory. | [Link](http://man7.org/linux/man-pages/man1/rmdir.1.html) |
+| **`locate`** | Locates file on system based on the file name database. Will need to use **`updatedb`** if file was created after last database update. | [Link](http://man7.org/linux/man-pages/man1/locate.1.html) |
+| **`updatedb`** | Command for updating file name database. | [Link](http://man7.org/linux/man-pages/man1/updatedb.1.html) |
+
+| Advanced Commands | Description | Man Page |
+| --- | --- | --- |
+| **`find`** | | [Link]() |
+| **`grep`** | | [Link]() |
+| **`mount`** | | [Link]() |
+| **`umount`** | | [Link]() |
+
+#### Examples
+
+| Command | Common Options |
+| --- | --- |
+| **`pwd`** | |
+```bash
+pwd               #displays current directory
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`cd`** | |
+```bash
+cd /root/Desktop  #go to Desktop folder under root
+cd ..             #take a step up the directory tree, would return to /root/
+cd                #return to home directory no matter where location, returns to /root/ in this case
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`ls`** | |
+```bash
+ls                      #prints directories/files listed under current directory
+ls -l                   #prints current directories/files with permissions
+ls -a                   #prints current d/f plus hidden files
+ls /root/Desktop        #prints d/f under /root/Desktop
+ls -r /root/Desktop     #prints /root/Desktop and recursively prints all directories under /root/Desktop
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`lsof`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`mkdir`** | |
+```bash
+mkdir folder1                 #creates directory named 'folder1' under current directory
+mkdir /root/Desktop/folder1   #creates directory named 'folder1' under /root/Desktop
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`rmdir`** | |
+```bash
+rmdir folder1                 #removes empty directory 'folder1' in current directory
+rmdir /root/Desktop/folder1   #removes empty directory 'folder1' under /root/Desktop
+```
+
+| Command | Common Options |
+| --- | --- |
 | **`locate`** | -i   Ignores case <br> |
 ```bash
 locate secrets.txt            #will search file name database for files with secrets.txt in name
@@ -109,58 +268,32 @@ locate -i screts.txt          #will search file name database for any file, rega
 updatedb                      #updates file name database for locate
 ```
 
-**`nano`** & **`vi`**
+| Command | Common Options |
+| --- | --- |
+| **`find`** |  |
 ```bash
-nano                          #opens nano editor
-vi                            #opens vi editor
-nano secrets.txt              #opens nano editor for file name secrets.txt
+
 ```
 
----
-
-### Directory Commands and Traversal 
-
-| Command | Description | Man Page |
-| --- | --- | --- |
-| **`pwd`** | Displays current working directory. | [Link](http://man7.org/linux/man-pages/man1/pwd.1.html) |
-| **`cd`** | Traverse to specific directory. | none |
-| **`ls`** | Prints directories and files in a directory. | [Link](http://man7.org/linux/man-pages/man1/ls.1.html) |
-| **`mkdir`** | Creates directory. | [Link](http://man7.org/linux/man-pages/man1/mkdir.1.html) |
-| **`rmdir`** | Removes empty directory. | [Link](http://man7.org/linux/man-pages/man1/rmdir.1.html) |
-
-#### Examples
-
-**`pwd`**
+| Command | Common Options |
+| --- | --- |
+| **`grep`** |  |
 ```bash
-pwd               #displays current directory
+
 ```
 
-**`cd`**
+| Command | Common Options |
+| --- | --- |
+| **`mount`** |  |
 ```bash
-cd /root/Desktop  #go to Desktop folder under root
-cd ..             #take a step up the directory tree, would return to /root/
-cd                #return to home directory no matter where location, returns to /root/ in this case
+
 ```
 
-**`ls`** 
+| Command | Common Options |
+| --- | --- |
+| **`umount`** |  |
 ```bash
-ls                      #prints directories/files listed under current directory
-ls -l                   #prints current directories/files with permissions
-ls -a                   #prints current d/f plus hidden files
-ls /root/Desktop        #prints d/f under /root/Desktop
-ls -r /root/Desktop     #prints /root/Desktop and recursively prints all directories under /root/Desktop
-```
 
-**`mkdir`**
-```bash
-mkdir folder1                 #creates directory named 'folder1' under current directory
-mkdir /root/Desktop/folder1   #creates directory named 'folder1' under /root/Desktop
-```
-
-**`rmdir`**
-```bash
-rmdir folder1                 #removes empty directory 'folder1' in current directory
-rmdir /root/Desktop/folder1   #removes empty directory 'folder1' under /root/Desktop
 ```
 
 ---
@@ -170,6 +303,181 @@ rmdir /root/Desktop/folder1   #removes empty directory 'folder1' under /root/Des
 
 ### System
 
+| Basic Commands | Description | Man Page |
+| --- | --- | --- |
+| **`uname`** | | [Link]() |
+| **`hostname`** | | [Link]() |
+| **`users`** | | [Link]() |
+| **`who`** | | [Link]() |
+| **`whoami`** | | [Link]() |
+| **`date`** | | [Link]() |
+| **`uptime`** | | [Link]() |
+| **`passwd`** | | [Link]() |
+| **`apt-get`** | | [Link]() |
+| **`halt`** | | [Link]() |
+| **`reboot`** | | [Link]() |
+
+| Advanced Commands | Description | Man Page |
+| --- | --- | --- |
+| **`top`** | | [Link]() |
+| **`last`** | | [Link]() |
+| **`ps`** | | [Link]() |
+| **`df`** | | [Link]() |
+| **`du`** | | [Link]() |
+| **`free`** | | [Link]() |
+| **`crontab`** | | [Link]() |
+| **`service`** | | [Link]() |
+| **`kill`** | | [Link]() |
+| **`killall`** | | [Link]() |
+
+#### Examples
+
+| Command | Common Options |
+| --- | --- |
+| **`uname`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`hostname`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`users`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`who`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`whoami`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`date`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`uptime`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`passwd`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`apt-get`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`halt`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`reboot`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`top`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`last`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`ps`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`df`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`du`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`free`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`crontab`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`service`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`kill`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`killall`** |  |
+```bash
+
+```
 
 ---
 
@@ -190,6 +498,181 @@ sudo passwd                   #set new root password
 
 ### Networking
 
+| Basic Commands | Description | Man Page |
+| --- | --- | --- |
+| **`ping`** | | [Link]() |
+| **`ifconfig`** | | [Link]() |
+| **`host`** | | [Link]() |
+| **`arp`** | | [Link]() |
+| **`dig`** | | [Link]() |
+| **`route`** | | [Link]() |
+| **`nslookup`** | | [Link]() |
+| **`netstat`** | | [Link]() |
+
+| Advanced Commands | Description | Man Page |
+| --- | --- | --- |
+| **`scp`** | | [Link]() |
+| **`ftp`** | | [Link]() |
+| **`sftp`** | | [Link]() |
+| **`ssh`** | | [Link]() |
+| **`nmap`** | | [Link]() |
+| **`tcpdump`** | | [Link]() |
+| **`telnet`** | | [Link]() |
+| **`whois`** | | [Link]() |
+| **`traceroute`** | | [Link]() |
+| **`tracepath`** | | [Link]() |
+| **`ifup`** | | [Link]() |
+| **`ifdown`** | | [Link]() |
+| **`dhclient`** | | [Link]() |
+
+#### Examples
+
+| Command | Common Options |
+| --- | --- |
+| **`ping`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`ifconfig`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`host`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`arp`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`dig`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`route`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`nslookup`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`netstat`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`scp`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`ftp`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`sftp`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`ssh`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`nmap`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`tcpdump`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`telnet`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`whois`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`traceroute`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`tracepath`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`ifup`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`ifdown`** |  |
+```bash
+
+```
+
+| Command | Common Options |
+| --- | --- |
+| **`dhclient`** |  |
+```bash
+
+```
 
 ---
 
