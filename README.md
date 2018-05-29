@@ -30,7 +30,7 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 
 | Basic Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
-| **`cat`** | Displays contents of a file. | [Link](http://man7.org/linux/man-pages/man1/cat.1.html) | [Jump](cat-anc)
+| **`cat`** | Displays contents of a file. | [Link](http://man7.org/linux/man-pages/man1/cat.1.html) | [Jump](#cat-anc)
 | **`less`** | Used to browse contents of a file. | [Link](http://man7.org/linux/man-pages/man1/less.1.html) |
 | **`touch`** | Creates empty file. | [Link](http://man7.org/linux/man-pages/man1/touch.1.html) |
 | **`file`** | Determines and prints out file type | [Link](http://man7.org/linux/man-pages/man1/file.1.html) |
@@ -52,11 +52,11 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 | **`diff`** | | [Link]() |
 
 
-#### Examples <a id="examples-1"></a>
+<a id="examples-1"></a>#### Examples 
 
 | Command | Common Options |
 | --- | --- |
-| **`cat [file]`** <a id="cat-anc"></a> | Commonly used without any options |
+|<a id="cat-anc"></a> **`cat [file]`** | Commonly used without any options |
 ```bash
 cat secrets.txt               #prints contents of secrets.txt
 ```
