@@ -35,14 +35,14 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 | Basic Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
 | **`cat`** | Displays contents of a file. | [Link](http://man7.org/linux/man-pages/man1/cat.1.html) | [Jump to Example](#cat-anc) |
-| **`less`** | Used to browse contents of a file. | [Link](http://man7.org/linux/man-pages/man1/less.1.html) | |
-| **`touch`** | Creates empty file. | [Link](http://man7.org/linux/man-pages/man1/touch.1.html) | |
-| **`file`** | Determines and prints out file type | [Link](http://man7.org/linux/man-pages/man1/file.1.html) | |
-| **`cp`** | Copy files through command line. Can also copy full directories. | [Link](http://man7.org/linux/man-pages/man1/cp.1.html) | |
-| **`mv`** | Moves file to a different location. Also used for renaming files. | [Link](http://man7.org/linux/man-pages/man1/mv.1.html) | |
-| **`rm`** | Removes file. Can also be used to remove entire directories. | [Link](http://man7.org/linux/man-pages/man1/rm.1.html) | |
-| **`echo`** | Dsiplays a line of text. Typically used to add text to a file. | [Link](http://man7.org/linux/man-pages/man1/echo.1.html) | |
-| **`nano`** & **`vi`** | Text editors built into linux command line. | none | |
+| **`less`** | Used to browse contents of a file. | [Link](http://man7.org/linux/man-pages/man1/less.1.html) | [Jump to Example](#less-anc) |
+| **`touch`** | Creates empty file. | [Link](http://man7.org/linux/man-pages/man1/touch.1.html) | [Jump to Example](#touch-anc) |
+| **`file`** | Determines and prints out file type | [Link](http://man7.org/linux/man-pages/man1/file.1.html) | [Jump to Example](#file-anc) |
+| **`cp`** | Copy files through command line. Can also copy full directories. | [Link](http://man7.org/linux/man-pages/man1/cp.1.html) | [Jump to Example](#cp-anc) |
+| **`mv`** | Moves file to a different location. Also used for renaming files. | [Link](http://man7.org/linux/man-pages/man1/mv.1.html) | [Jump to Example](#mv-anc) |
+| **`rm`** | Removes file. Can also be used to remove entire directories. | [Link](http://man7.org/linux/man-pages/man1/rm.1.html) | [Jump to Example](#rm-anc) |
+| **`echo`** | Dsiplays a line of text. Typically used to add text to a file. | [Link](http://man7.org/linux/man-pages/man1/echo.1.html) | [Jump to Example](#echo-anc) |
+| **`nano`** & **`vi`** | Text editors built into linux command line. | none | [Jump to Example](#nano-anc) |
 
 <a id="fa-inter"></a>
 
@@ -67,28 +67,28 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 cat secrets.txt               #prints contents of secrets.txt
 ```
 
-| Command | Common Options |
+|<a id="less-anc"></a> Command | Common Options |
 | --- | --- |
 | **`less filename`** |  |
 ```bash
 less secrets.txt              #Displays contents of secrets.txt. Good to use for bigger files for easier navigation of content
 ```
 
-| Command | Common Options |
+|<a id="touch-anc"></a> Command | Common Options |
 | --- | --- |
 | **`touch filename`** | Commonly used without any options |
 ```bash
 touch new_screts.txt          #creates empty txt file called new_secrets.txt
 ```
 
-| Command | Common Options |
+|<a id="file-anc"></a> Command | Common Options |
 | --- | --- |
 | **`file filename`** | Commonly used without any options |
 ```bash
 file secrets.txt               #prints out the file type of secrets.txt
 ```
 
-| Command | Common Options |
+|<a id="cp-anc"></a> Command | Common Options |
 | --- | --- |
 | **`cp [option(s)] sourcefile targetfile`** | -r   Copies directories recursively<br>-T   Treat destination as normal file | 
 ```bash
@@ -99,7 +99,7 @@ cp secrets.txt -T secret              #copies secrets.txt to a new file named se
 cp -r /root/Documents /root/newdir    #recursively copies entire /root/Documents directory to a new directory call newdir located under /root
 ```
 
-| Command | Common Options |
+|<a id="mv-anc"></a> Command | Common Options |
 | --- | --- |
 | **`mv sourcefile targetfile`** | Commonly used without any options |
 ```bash
@@ -107,7 +107,7 @@ mv secrets.txt old_secrets.txt        #renames secrets.txt to old_secrets.txt
 mv secrets.txt /root/Desktop          #moves secrets.txt to /root/Desktop directory
 ```
 
-| Command | Common Options |
+|<a id="rm-anc"></a> Command | Common Options |
 | --- | --- |
 | **`rm [options(s)] filename`** | -r  Removes directories and their contents recursively <br>-f  Force removes file |
 ```bash
@@ -116,15 +116,16 @@ rm -r /root/newdir                    #deletes the directory /root/newdir and al
 rm -rf /root/newdir                   #force removes the entire directory /root/newdir
 ```
 
-| Command | Common Options |
+|<a id="echo-anc"></a> Command | Common Options |
 | --- | --- |
 | **`echo [text] [>> filename]`** |  |
 ```bash
 echo Display this text                        #Writes contents "Display this text" to console
 echo Add this text to file >> secrets.txt     #Appends contents "Add this text to file" to the end of the file secrets.txt. Will create and add to the file if file doesn't exist.
 ```
-
-**`nano`** & **`vi`**
+|<a id="nano-anc"></a> Command |
+| --- |
+| **`nano`** & **`vi`** |
 ```bash
 nano                          #opens nano editor
 vi                            #opens vi editor
