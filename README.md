@@ -46,16 +46,16 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 
 <a id="fa-inter"></a>
 
-| Intermediate Commands | Description | Man Page |
-| --- | --- | --- |
-| **`ln`** | | [Link]() |
-| **`chmod`** | | [Link]() |
-| **`chown`** | | [Link]() |
-| **`gzip`** | | [Link]() |
-| **`tar`** | | [Link]() |
-| **`zip`** | | [Link]() |
-| **`unzip`** | | [Link]() |
-| **`diff`** | | [Link]() |
+| Intermediate Commands | Description | Man Page | Example |
+| --- | --- | --- | --- |
+| **`ln`** | Creates links between files. Hard links refer to the target file linking to the data on the disk of the source file. Soft links refer to the target file linking to the source file, which then links to the data on the disk. Hard link = Tfile -> data <- Sfile. Soft link = Tfile -> Sfile -> data. | [Link](http://man7.org/linux/man-pages/man1/ln.1.html) | [Jump to Example](#ln-anc) |
+| **`chmod`** | Changes file mode bits to allow for setting file permissions. | [Link](http://man7.org/linux/man-pages/man1/chmod.1.html) | [Jump to Example](#chmod-anc) |
+| **`chown`** | Change file owner and group | [Link](http://man7.org/linux/man-pages/man1/chown.1.html) | [Jump to Example](#chown-anc) |
+| **`gzip`** | Compresses contents of files. | [Link]() | [Jump to Example](#gzip-anc) |
+| **`tar`** | Archives file(s) (Compression is optional). | [Link](http://man7.org/linux/man-pages/man1/tar.1.html) | [Jump to Example](#tar-anc) |
+| **`zip`** | | [Link]() | [Jump to Example](#zip-anc) |
+| **`unzip`** | | [Link]() | [Jump to Example](#unzip-anc) |
+| **`diff`** | Compares the content of two files. Output is all lines that do not match. | [Link](http://man7.org/linux/man-pages/man1/diff.1.html) | [Jump to Example](#diff-anc) |
 
 <a id="examples-1"></a>
 #### Examples 
@@ -118,7 +118,7 @@ rm -rf /root/newdir                   #force removes the entire directory /root/
 
 |<a id="echo-anc"></a> Command | Common Options |
 | --- | --- |
-| **`echo [text] [>> filename]`** |  |
+| **`echo [text] [>> filename]`** | Commonly add `>> filename` after text to append to the end of the file. |
 ```bash
 echo Display this text                        #Writes contents "Display this text" to console
 echo Add this text to file >> secrets.txt     #Appends contents "Add this text to file" to the end of the file secrets.txt. Will create and add to the file if file doesn't exist.
@@ -132,56 +132,57 @@ vi                            #opens vi editor
 nano secrets.txt              #opens nano editor for file name secrets.txt
 ```
 
-| Command | Common Options |
+|<a id="ln-anc"></a> Command | Common Options |
 | --- | --- |
-| **`ln`** |  |
+| **`ln [option(s)] sourcefile targetfile`** | -s   Creates a symbolic link, enabling linking across file systems/partitions. Also allows linking of directories. |
 ```bash
-
+ln secrets.txt linked_secrets.txt       #creates a hard link for secrets.txt called linked_secrets.txt
+ln -s /root/Desktop/script.sh /bin/scriptcommand    #creates a soft link between script.sh located in /root/Desktop/ directory and scriptcommand located in /bin/ directory. This allows scriptcommand to be called from anywhere in the file system, since /bin/ is located in everyone's PATH..
 ```
 
-| Command | Common Options |
+|<a id="chmod-anc"></a> Command | Common Options |
 | --- | --- |
 | **`chmod`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="chown-anc"></a> Command | Common Options |
 | --- | --- |
 | **`chown`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="gzip-anc"></a> Command | Common Options |
 | --- | --- |
 | **`gzip`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="tar-anc"></a> Command | Common Options |
 | --- | --- |
 | **`tar`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="zip-anc"></a> Command | Common Options |
 | --- | --- |
 | **`zip`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="unzip-anc"></a> Command | Common Options |
 | --- | --- |
 | **`unzip`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="diff-anc"></a> Command | Common Options |
 | --- | --- |
 | **`diff`** |  |
 ```bash
@@ -517,6 +518,7 @@ sudo passwd                   #set new root password
 | **`route`** | | [Link]() |
 | **`nslookup`** | | [Link]() |
 | **`netstat`** | | [Link]() |
+| **`wget`** | | [Link]() |
 
 | Advanced Commands | Description | Man Page |
 | --- | --- | --- |
