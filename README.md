@@ -10,7 +10,8 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 ## Table of Contents
 
 - [File and Directory Commands](#file-and-directory-commands)
-  - [File Administration](#file-Administration)
+  - [File Administration](#file-administration)
+    - [Examples](#examples-1) 
   - [File Systems](#file-systems)
 - [System Commands](#system-commands)
   - [System](#system)
@@ -21,22 +22,22 @@ A curated list of commonly used linux commands, easily accessible in one locatio
   
 ---
 
-## File & Directory Commands
+## File and Directory Commands
 **_Some commands for file and directory administration in Linux_**
 
 
 ### File Administration
 
-| Basic Commands | Description | Man Page |
-| --- | --- | --- |
-| **`cat`** | Displays contents of a file. | [Link](http://man7.org/linux/man-pages/man1/cat.1.html) |
-| **`less`** | | [Link]() |
+| Basic Commands | Description | Man Page | Example |
+| --- | --- | --- | --- |
+| **`cat`** | Displays contents of a file. | [Link](http://man7.org/linux/man-pages/man1/cat.1.html) | [Jump](cat-anc)
+| **`less`** | Used to browse contents of a file. | [Link](http://man7.org/linux/man-pages/man1/less.1.html) |
 | **`touch`** | Creates empty file. | [Link](http://man7.org/linux/man-pages/man1/touch.1.html) |
 | **`file`** | Determines and prints out file type | [Link](http://man7.org/linux/man-pages/man1/file.1.html) |
 | **`cp`** | Copy files through command line. Can also copy full directories. | [Link](http://man7.org/linux/man-pages/man1/cp.1.html) |
 | **`mv`** | Moves file to a different location. Also used for renaming files. | [Link](http://man7.org/linux/man-pages/man1/mv.1.html) |
 | **`rm`** | Removes file. Can also be used to remove entire directories. | [Link](http://man7.org/linux/man-pages/man1/rm.1.html) |
-| **`echo`** | | [Link]() |
+| **`echo`** | Dsiplays a line of text. Typically used to add text to a file. | [Link](http://man7.org/linux/man-pages/man1/echo.1.html) |
 | **`nano`** & **`vi`** | Text editors built into linux command line. | none |
 
 | Advanced Commands | Description | Man Page |
@@ -51,39 +52,39 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 | **`diff`** | | [Link]() |
 
 
-#### Examples
+#### Examples <a id="examples-1"></a>
 
 | Command | Common Options |
 | --- | --- |
-| **`cat`** | Commonly used without any options |
+| **`cat [file]`** <a id="cat-anc"></a> | Commonly used without any options |
 ```bash
 cat secrets.txt               #prints contents of secrets.txt
 ```
 
 | Command | Common Options |
 | --- | --- |
-| **`less`** |  |
+| **`less [file]`** |  |
 ```bash
-
+less secrets.txt              #Displays contents of secrets.txt. Good to use for bigger files for easier navigation of content
 ```
 
 | Command | Common Options |
 | --- | --- |
-| **`touch`** | Commonly used without any options |
+| **`touch [filename]`** | Commonly used without any options |
 ```bash
 touch new_screts.txt          #creates empty txt file called new_secrets.txt
 ```
 
 | Command | Common Options |
 | --- | --- |
-| **`file`** | Commonly used without any options |
+| **`file [filename]`** | Commonly used without any options |
 ```bash
-file screts.txt               #prints out the file type of secrets.txt
+file secrets.txt               #prints out the file type of secrets.txt
 ```
 
 | Command | Common Options |
 | --- | --- |
-| **`cp`** | -r   Copies directories recursively<br>-T   Treat destination as normal file | 
+| **`cp [option(s)] [sourcefile] [targetfile]`** | -r   Copies directories recursively<br>-T   Treat destination as normal file | 
 ```bash
 #first argument is the file being copied, second argument is where to copy the file
 cp secrets.txt secrets2.txt           #creates a copy of secrets.txt, named secrets2.txt, in current working directory
@@ -94,7 +95,7 @@ cp -r /root/Documents /root/newdir    #recursively copies entire /root/Documents
 
 | Command | Common Options |
 | --- | --- |
-| **`mv`** | Commonly used without any options |
+| **`mv [sourcefile] [targetfile]`** | Commonly used without any options |
 ```bash
 mv secrets.txt old_secrets.txt        #renames secrets.txt to old_secrets.txt
 mv secrets.txt /root/Desktop          #moves secrets.txt to /root/Desktop directory
@@ -102,7 +103,7 @@ mv secrets.txt /root/Desktop          #moves secrets.txt to /root/Desktop direct
 
 | Command | Common Options |
 | --- | --- |
-| **`rm`** | -r  Removes directories and their contents recursively <br>-f  Force removes file |
+| **`rm [options(s)] [file]`** | -r  Removes directories and their contents recursively <br>-f  Force removes file |
 ```bash
 rm secrets.txt                        #deletes the file secrets.txt
 rm -r /root/newdir                    #deletes the directory /root/newdir and all its contents
@@ -111,9 +112,10 @@ rm -rf /root/newdir                   #force removes the entire directory /root/
 
 | Command | Common Options |
 | --- | --- |
-| **`echo`** |  |
+| **`echo [text] [>> filename]`** |  |
 ```bash
-
+echo Display this text                        #Writes contents "Display this text" to console
+echo Add this text to file >> secrets.txt     #Appends contents "Add this text to file" to the end of the file secrets.txt. Will create and add to the file if file doesn't exist.
 ```
 
 **`nano`** & **`vi`**
@@ -205,14 +207,14 @@ nano secrets.txt              #opens nano editor for file name secrets.txt
 
 | Command | Common Options |
 | --- | --- |
-| **`pwd`** | |
+| **`pwd`** | Command that doesn't use options |
 ```bash
 pwd               #displays current directory
 ```
 
 | Command | Common Options |
 | --- | --- |
-| **`cd`** | |
+| **`cd [directory]`** | |
 ```bash
 cd /root/Desktop  #go to Desktop folder under root
 cd ..             #take a step up the directory tree, would return to /root/
