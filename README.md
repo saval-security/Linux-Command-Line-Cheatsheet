@@ -19,7 +19,7 @@ A curated list of commonly used linux commands, easily accessible in one locatio
     - [Intermediate Commands](#fs-inter)
     - [Examples](#fs-ex)
 - [System Commands](#system-commands)
-  - [System](#system)
+  - [System Information and Process Commands](#system-information-and-process-commands)
     - [Basic Commands](#s-basic)
     - [Intermediate Commands](#s-inter)
     - [Examples](#s-ex)
@@ -59,12 +59,12 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 | Intermediate Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
 | **`ln`** | Creates links between files. Hard links refer to the target file linking to the data on the disk of the source file. Soft links refer to the target file linking to the source file, which then links to the data on the disk. Hard link = Tfile -> data <- Sfile. Soft link = Tfile -> Sfile -> data. | [Link](http://man7.org/linux/man-pages/man1/ln.1.html) | [Jump to Example](#ln-anc) |
-| **`chmod`** | Changes file mode bits to allow for setting file permissions. | [Link](http://man7.org/linux/man-pages/man1/chmod.1.html) | [Jump to Example](#chmod-anc) |
-| **`chown`** | Change file owner and group | [Link](http://man7.org/linux/man-pages/man1/chown.1.html) | [Jump to Example](#chown-anc) |
-| **`gzip`** | Compresses contents of files. | [Link]() | [Jump to Example](#gzip-anc) |
+| **`chmod`** | Changes file mode bits to allow for setting file permissions. Permissions for the three roles, user (u), group (g), and other(o), are set by using three letter, read (r), write (w), and execute (x). Octal permission notation can also be used, with 4 standing for read, 2 standing for write, and 1 standing for execute. So 754 would mean user can rwx, group can rx, and other can r. Usually need to use `sudo` before the command. | [Link](http://man7.org/linux/man-pages/man1/chmod.1.html) | [Jump to Example](#chmod-anc) |
+| **`chown`** | Change file owner and group. Usually need to run with `sudo`. | [Link](http://man7.org/linux/man-pages/man1/chown.1.html) | [Jump to Example](#chown-anc) |
+| **`gzip`** | Compresses contents of files, or expands compressed files. | [Link](https://www.systutorials.com/docs/linux/man/1-gzip/) | [Jump to Example](#gzip-anc) |
 | **`tar`** | Archives file(s) (Compression is optional). | [Link](http://man7.org/linux/man-pages/man1/tar.1.html) | [Jump to Example](#tar-anc) |
-| **`zip`** | | [Link]() | [Jump to Example](#zip-anc) |
-| **`unzip`** | | [Link]() | [Jump to Example](#unzip-anc) |
+| **`zip`** | Package and compress (archive) files. | [Link](https://www.systutorials.com/docs/linux/man/1-zip/) | [Jump to Example](#zip-anc) |
+| **`unzip`** | Extracts compressed files in a ZIP archive. | [Link](https://www.systutorials.com/docs/linux/man/1-unzip/) | [Jump to Example](#unzip-anc) |
 | **`diff`** | Compares the content of two files. Output is all lines that do not match. | [Link](http://man7.org/linux/man-pages/man1/diff.1.html) | [Jump to Example](#diff-anc) |
 
 <a id="fa-ex"></a>
@@ -147,22 +147,31 @@ nano secrets.txt              #opens nano editor for file name secrets.txt
 | --- | --- |
 | **`ln [option(s)] sourcefile targetfile`** | -s   Creates a symbolic link, enabling linking across file systems/partitions. Also allows linking of directories. |
 ```bash
-ln secrets.txt linked_secrets.txt       #creates a hard link for secrets.txt called linked_secrets.txt
-ln -s /root/Desktop/script.sh /bin/scriptcommand    #creates a soft link between script.sh located in /root/Desktop/ directory and scriptcommand located in /bin/ directory. This allows scriptcommand to be called from anywhere in the file system, since /bin/ is located in everyone's PATH..
+ln secrets.txt linked_secrets.txt                   #creates a hard link for secrets.txt called linked_secrets.txt
+ln -s /root/Desktop/script.sh /bin/scriptcommand    #creates a soft link between script.sh located in /root/Desktop/ directory and scriptcommand located in /bin/ directory.
+                                                    #This allows scriptcommand to be called from anywhere in the file system, since /bin/ is located in everyone's PATH..
 ```
 
 |<a id="chmod-anc"></a> Command | Common Options |
 | --- | --- |
-| **`chmod`** |  |
+| **`chmod [option(s)] [permissions] filename`** | -R   Changes permissions recursively for all files and directories. |
 ```bash
-
+chmod +x secret.sh                                #gives execute permission to all roles for the file secret.sh
+chmod u+rx,g+r secret.sh                          #gives read and execute permission to user, and read permission to group for the file secret.sh
+chmod u-x secret.sh                               #removes execute permission for user for the file secret.sh
+chmod 755 secret.sh                               #gives rwx permission to user, rw permission to group, and rw permission to other for the file secret.sh
+chmod -R 744 /root/Desktop/secrets_directory      #recursively gives the permissions rwx to user, r to group, and r to other for the entire directory /root/Desktop/secrets_directory
 ```
 
 |<a id="chown-anc"></a> Command | Common Options |
 | --- | --- |
-| **`chown`** |  |
+| **`chown [option(s)] owner:group filename`** | -h   Forcefully changes owner:group for symbolic links.<br> -R   Recursively changes owner:group of all files in a directory. |
 ```bash
-
+chown root secrets.txt                                        #changes owner to root for the file secrets.txt
+chown :secretgroup secrets.txt                                #changes group to secretgroup for the file secrets.txt
+chown root:secretgroup secrets.txt                            #changes owner to root and group to secretgroup for the file secrets/txt
+chmod -h root:secretgroup symbolic_secrets.txt                #force change for symbolic links
+chmod -R root:secretgroup /root/Desktop/secrets_directory     #recursively changes owner to root and group to secretgroup for all files in the directory /root/Desktop/secrets_directory
 ```
 
 |<a id="gzip-anc"></a> Command | Common Options |
@@ -174,9 +183,16 @@ ln -s /root/Desktop/script.sh /bin/scriptcommand    #creates a soft link between
 
 |<a id="tar-anc"></a> Command | Common Options |
 | --- | --- |
-| **`tar`** |  |
+| **`tar [option(s)] file [other]`** | -c   Creates a new .tar archive file<br> -v    Verbose for .tar progress<br> -f    File name of archive file<br> -z    Create compress gzip archive file<br> -j    Highly compress tar file bz2<br> -x    Extract a tar fle<br> -C   Untar in different directory.<br> -t    Lists all contents in .tar archive<br> -r   Append file to the .tar archive. |
 ```bash
-
+tar -cvf scrts.tar                            #creates tar archive file scrts.tar
+tar -cvzf scrts.tar.gz                        #cretaes compressed tar archive file scrts.tar.gz
+tar -cvfj scrts.tar.bz2                       #creates highly compress archive file scrts.tar.bz2
+tar -xvf scrts.tar -C /root/Desktop           #extracts scrts.tar to the directory /root/Desktop. Also extracts .tar.gz and .tar.bz2 files.
+tar -zxvf scrts.tar.gz                        #extracts and uncompresses scrts.tar.gz
+tar -jxvf scrts.tar.bz2                       #extracts and uncompresses scrts.tar.bz2
+tar -tvf scrts.tar                            #lists contents in scrts.tar. Also works for .tar.gz and .tar.bz2
+tar -rvf scrts.tar moresecrets.txt            #adds the file moresecrets.txt to the tar archived file scrts.tar. Note, cannot append to tar.gz or tar.bz2 files.
 ```
 
 |<a id="zip-anc"></a> Command | Common Options |
@@ -285,7 +301,7 @@ rmdir /root/Desktop/folder1   #removes empty directory 'folder1' under /root/Des
 | **`locate`** | -i   Ignores case <br> |
 ```bash
 locate secrets.txt            #will search file name database for files with secrets.txt in name
-locate -i screts.txt          #will search file name database for any file, regardless of case, with secrets.txt in name
+locate -i secrets.txt         #will search file name database for any file, regardless of case, with secrets.txt in name
 ```
 
 |<a id="updatedb-anc"></a> Command | Common Options |
@@ -328,7 +344,7 @@ updatedb                      #updates file name database for locate
 ## System Commands
 **_Some commands used for system and network information._**
 
-### System
+### System Information and Process Commands
 
 <a id="s-basic"></a>
 
@@ -756,3 +772,4 @@ Using **`Ctrl+Z`** will force stop current execution
 | Other | Description |
 | --- | --- |
 | [Link](http://man7.org/linux/man-pages/dir_all_by_section.html#man1) | Linux man pages. |
+| [Link](https://www.systutorials.com/docs/linux/man/) | More Linux man pages, used when the above link didn't have the man page. |
