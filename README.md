@@ -3,7 +3,7 @@ Basic Linux Commands.
 
 A curated list of commonly used linux commands, easily accessible in one location. I have used linux fairly often and am pretty comfortable using most of these commands. However I sometimes forget syntax/options for a particular command, and need to look it up. While most guides I've found under [resources](#resources) provide a lot of great information, the guides always seemed random in nature. I created this guide to attempt to help make some commands easier to read and find, and how they are commonly used (or at least how I've commonly used them). 
 
-**_This is not the end all - be all guide for linux commands. Just some basic/advanced commands, with some options for how to commonly use them._**
+**_This is not the end all - be all guide for linux commands. Just some basic/intermediate commands, with some options for how to commonly use them._**
 
 ---
 
@@ -13,13 +13,23 @@ A curated list of commonly used linux commands, easily accessible in one locatio
   - [File Administration](#file-administration)
     - [Basic Commands](#fa-basic)
     - [Intermediate Commands](#fa-inter)
-    - [Examples](#examples-1) 
+    - [Examples](#fa-ex) 
   - [File Systems](#file-systems)
+    - [Basic Commands](#fs-basic)
+    - [Intermediate Commands](#fs-inter)
+    - [Examples](#fs-ex)
 - [System Commands](#system-commands)
   - [System](#system)
-  - [Root Privilege](#root-privilege)
+    - [Basic Commands](#s-basic)
+    - [Intermediate Commands](#s-inter)
+    - [Examples](#s-ex)
   - [Networking](#networking)
+    - [Basic Commands](#net-basic)
+    - [Intermediate Commands](#net-inter)
+    - [Examples](#net-ex)
+- [Other](#other)
   - [Random](#random)
+  - [Shortcuts](#shortcuts)
 - [Resources](#resources)
   
 ---
@@ -57,7 +67,8 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 | **`unzip`** | | [Link]() | [Jump to Example](#unzip-anc) |
 | **`diff`** | Compares the content of two files. Output is all lines that do not match. | [Link](http://man7.org/linux/man-pages/man1/diff.1.html) | [Jump to Example](#diff-anc) |
 
-<a id="examples-1"></a>
+<a id="fa-ex"></a>
+
 #### Examples 
 
 |<a id="cat-anc"></a> Command | Common Options |
@@ -69,7 +80,7 @@ cat secrets.txt               #prints contents of secrets.txt
 
 |<a id="less-anc"></a> Command | Common Options |
 | --- | --- |
-| **`less filename`** |  |
+| **`less filename`** | Commonly used without any options  |
 ```bash
 less secrets.txt              #Displays contents of secrets.txt. Good to use for bigger files for easier navigation of content
 ```
@@ -193,34 +204,40 @@ ln -s /root/Desktop/script.sh /bin/scriptcommand    #creates a soft link between
 
 ### File Systems 
 
-| Basic Commands | Description | Man Page |
-| --- | --- | --- |
-| **`pwd`** | Displays current working directory. | [Link](http://man7.org/linux/man-pages/man1/pwd.1.html) |
-| **`cd`** | Traverse to specific directory. | none |
-| **`ls`** | Prints directories and files in a directory. | [Link](http://man7.org/linux/man-pages/man1/ls.1.html) |
-| **`lsof`** | | [Link]() |
-| **`mkdir`** | Creates directory. | [Link](http://man7.org/linux/man-pages/man1/mkdir.1.html) |
-| **`rmdir`** | Removes empty directory. | [Link](http://man7.org/linux/man-pages/man1/rmdir.1.html) |
-| **`locate`** | Locates file on system based on the file name database. Will need to use **`updatedb`** if file was created after last database update. | [Link](http://man7.org/linux/man-pages/man1/locate.1.html) |
-| **`updatedb`** | Command for updating file name database. | [Link](http://man7.org/linux/man-pages/man1/updatedb.1.html) |
+<a id="fs-basic"></a>
 
-| Advanced Commands | Description | Man Page |
-| --- | --- | --- |
-| **`find`** | | [Link]() |
-| **`grep`** | | [Link]() |
-| **`mount`** | | [Link]() |
-| **`umount`** | | [Link]() |
+| Basic Commands | Description | Man Page | Example |
+| --- | --- | --- | --- |
+| **`pwd`** | Displays current working directory. | [Link](http://man7.org/linux/man-pages/man1/pwd.1.html) | [Jump to Example](#pwd-anc) |
+| **`cd`** | Traverse to specific directory. | none | [Jump to Example](#cd-anc) |
+| **`ls`** | Prints directories and files in a directory. | [Link](http://man7.org/linux/man-pages/man1/ls.1.html) | [Jump to Example](#ls-anc) |
+| **`lsof`** | | [Link]() | [Jump to Example](#lsof-anc) |
+| **`mkdir`** | Creates directory. | [Link](http://man7.org/linux/man-pages/man1/mkdir.1.html) | [Jump to Example](#mkdir-anc) |
+| **`rmdir`** | Removes empty directory. | [Link](http://man7.org/linux/man-pages/man1/rmdir.1.html) | [Jump to Example](#rmdir-anc) |
+| **`locate`** | Locates file on system based on the file name database. Will need to use **`updatedb`** if file was created after last database update. | [Link](http://man7.org/linux/man-pages/man1/locate.1.html) | [Jump to Example](#locate-anc) |
+| **`updatedb`** | Command for updating file name database. | [Link](http://man7.org/linux/man-pages/man1/updatedb.1.html) | [Jump to Example](#updatedb-anc) |
+
+<a id="fs-inter"></a>
+
+| Intermediate Commands | Description | Man Page | Example |
+| --- | --- | --- | --- |
+| **`find`** | | [Link]() | [Jump to Example](#find-anc) |
+| **`grep`** | | [Link]() | [Jump to Example](#grep-anc) |
+| **`mount`** | | [Link]() | [Jump to Example](#mount-anc) |
+| **`umount`** | | [Link]() | [Jump to Example](#umount-anc) |
+
+<a id="fs-ex"></a>
 
 #### Examples
 
-| Command | Common Options |
+|<a id="pwd-anc"></a> Command | Common Options |
 | --- | --- |
 | **`pwd`** | Command that doesn't use options |
 ```bash
 pwd               #displays current directory
 ```
 
-| Command | Common Options |
+|<a id="cd-anc"></a> Command | Common Options |
 | --- | --- |
 | **`cd [directory]`** | |
 ```bash
@@ -229,7 +246,7 @@ cd ..             #take a step up the directory tree, would return to /root/
 cd                #return to home directory no matter where location, returns to /root/ in this case
 ```
 
-| Command | Common Options |
+|<a id="ls-anc"></a> Command | Common Options |
 | --- | --- |
 | **`ls`** | |
 ```bash
@@ -240,14 +257,14 @@ ls /root/Desktop        #prints d/f under /root/Desktop
 ls -r /root/Desktop     #prints /root/Desktop and recursively prints all directories under /root/Desktop
 ```
 
-| Command | Common Options |
+|<a id="lsof-anc"></a> Command | Common Options |
 | --- | --- |
 | **`lsof`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="mkdir-anc"></a> Command | Common Options |
 | --- | --- |
 | **`mkdir`** | |
 ```bash
@@ -255,7 +272,7 @@ mkdir folder1                 #creates directory named 'folder1' under current d
 mkdir /root/Desktop/folder1   #creates directory named 'folder1' under /root/Desktop
 ```
 
-| Command | Common Options |
+|<a id="rmdir-anc"></a> Command | Common Options |
 | --- | --- |
 | **`rmdir`** | |
 ```bash
@@ -263,7 +280,7 @@ rmdir folder1                 #removes empty directory 'folder1' in current dire
 rmdir /root/Desktop/folder1   #removes empty directory 'folder1' under /root/Desktop
 ```
 
-| Command | Common Options |
+|<a id="locate-anc"></a> Command | Common Options |
 | --- | --- |
 | **`locate`** | -i   Ignores case <br> |
 ```bash
@@ -271,35 +288,35 @@ locate secrets.txt            #will search file name database for files with sec
 locate -i screts.txt          #will search file name database for any file, regardless of case, with secrets.txt in name
 ```
 
-| Command | Common Options |
+|<a id="updatedb-anc"></a> Command | Common Options |
 | --- | --- |
 | **`updatedb`** | Commonly used without any options |
 ```bash
 updatedb                      #updates file name database for locate
 ```
 
-| Command | Common Options |
+|<a id="find-anc"></a> Command | Common Options |
 | --- | --- |
 | **`find`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="grep-anc"></a> Command | Common Options |
 | --- | --- |
 | **`grep`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="mount-anc"></a> Command | Common Options |
 | --- | --- |
 | **`mount`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="umount-anc"></a> Command | Common Options |
 | --- | --- |
 | **`umount`** |  |
 ```bash
@@ -313,176 +330,199 @@ updatedb                      #updates file name database for locate
 
 ### System
 
-| Basic Commands | Description | Man Page |
-| --- | --- | --- |
-| **`uname`** | | [Link]() |
-| **`hostname`** | | [Link]() |
-| **`users`** | | [Link]() |
-| **`who`** | | [Link]() |
-| **`whoami`** | | [Link]() |
-| **`date`** | | [Link]() |
-| **`uptime`** | | [Link]() |
-| **`passwd`** | | [Link]() |
-| **`apt-get`** | | [Link]() |
-| **`halt`** | | [Link]() |
-| **`reboot`** | | [Link]() |
+<a id="s-basic"></a>
 
-| Advanced Commands | Description | Man Page |
-| --- | --- | --- |
-| **`top`** | | [Link]() |
-| **`last`** | | [Link]() |
-| **`ps`** | | [Link]() |
-| **`df`** | | [Link]() |
-| **`du`** | | [Link]() |
-| **`free`** | | [Link]() |
-| **`crontab`** | | [Link]() |
-| **`service`** | | [Link]() |
-| **`kill`** | | [Link]() |
-| **`killall`** | | [Link]() |
+| Basic Commands | Description | Man Page | Example |
+| --- | --- | --- | --- |
+| **`uname`** | | [Link]() | [Jump to Example](#uname-anc) |
+| **`hostname`** | | [Link]() | [Jump to Example](#hostname-anc) |
+| **`users`** | | [Link]() | [Jump to Example](#users-anc) |
+| **`who`** | | [Link]() | [Jump to Example](#who-anc) |
+| **`whoami`** | | [Link]() | [Jump to Example](#whoami-anc) |
+| **`sudo`** | Using sudo before another command will run it with root privilege. Will need to enter root password after running command. | [Link]() | [Jump to Example](#sudo-anc) |
+| **`su`** | Upgrades privilege to root. Root password will need to be set to use and will need to enter root password to be able to elevate. | [Link]() | [Jump to Example](#su-anc) |
+| **`date`** | | [Link]() | [Jump to Example](#date-anc) |
+| **`uptime`** | | [Link]() | [Jump to Example](#uptime-anc) |
+| **`passwd`** | | [Link]() | [Jump to Example](#passwd-anc) |
+| **`apt-get`** | | [Link]() | [Jump to Example](#apt-get-anc) |
+| **`halt`** | | [Link]() | [Jump to Example](#halt-anc) |
+| **`reboot`** | | [Link]() | [Jump to Example](#reboot-anc) |
+
+<a id="s-inter"></a>
+
+| Intermediate Commands | Description | Man Page | Example |
+| --- | --- | --- | --- |
+| **`top`** | | [Link]() | [Jump to Example](#top-anc) |
+| **`last`** | | [Link]() | [Jump to Example](#last-anc) |
+| **`ps`** | | [Link]() | [Jump to Example](#ps-anc) |
+| **`df`** | | [Link]() | [Jump to Example](#df-anc) |
+| **`du`** | | [Link]() | [Jump to Example](#du-anc) |
+| **`free`** | | [Link]() | [Jump to Example](#free-anc) |
+| **`crontab`** | | [Link]() | [Jump to Example](#crontab-anc) |
+| **`service`** | | [Link]() | [Jump to Example](#service-anc) |
+| **`kill`** | | [Link]() | [Jump to Example](#kill-anc) |
+| **`killall`** | | [Link]() | [Jump to Example](#killall-anc) |
+
+<a id="s-ex"></a>
 
 #### Examples
 
-| Command | Common Options |
+|<a id="uname-anc"></a> Command | Common Options |
 | --- | --- |
 | **`uname`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="hostname-anc"></a> Command | Common Options |
 | --- | --- |
 | **`hostname`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="users-anc"></a> Command | Common Options |
 | --- | --- |
 | **`users`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="who-anc"></a> Command | Common Options |
 | --- | --- |
 | **`who`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="whoami-anc"></a> Command | Common Options |
 | --- | --- |
 | **`whoami`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="sudo-anc"></a> Command | Common Options |
+| --- | --- |
+| **`sudo`** |  |
+```bash
+sudo apt-get update           #updating system with root permission
+```
+
+|<a id="su-anc"></a> Command | Common Options |
+| --- | --- |
+| **`su`** |  |
+```bash
+su                            #elevate access to root
+sudo passwd                   #set new root password
+```
+
+|<a id="date-anc"></a> Command | Common Options |
 | --- | --- |
 | **`date`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="uptime-anc"></a> Command | Common Options |
 | --- | --- |
 | **`uptime`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="passwd-anc"></a> Command | Common Options |
 | --- | --- |
 | **`passwd`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="apt-get-anc"></a> Command | Common Options |
 | --- | --- |
 | **`apt-get`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="halt-anc"></a> Command | Common Options |
 | --- | --- |
 | **`halt`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="reboot-anc"></a> Command | Common Options |
 | --- | --- |
 | **`reboot`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="top-anc"></a> Command | Common Options |
 | --- | --- |
 | **`top`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="last-anc"></a> Command | Common Options |
 | --- | --- |
 | **`last`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="ps-anc"></a> Command | Common Options |
 | --- | --- |
 | **`ps`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="df-anc"></a> Command | Common Options |
 | --- | --- |
 | **`df`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="du-anc"></a> Command | Common Options |
 | --- | --- |
 | **`du`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="free-anc"></a> Command | Common Options |
 | --- | --- |
 | **`free`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="crontab-anc"></a> Command | Common Options |
 | --- | --- |
 | **`crontab`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="service-anc"></a> Command | Common Options |
 | --- | --- |
 | **`service`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="kill-anc"></a> Command | Common Options |
 | --- | --- |
 | **`kill`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="killall-anc"></a> Command | Common Options |
 | --- | --- |
 | **`killall`** |  |
 ```bash
@@ -491,194 +531,185 @@ updatedb                      #updates file name database for locate
 
 ---
 
-### Root Privilege
-
-**`sudo`** Using sudo before another command will run it with root privilege. Will need to enter root password after running command.
-```bash
-sudo apt-get update           #updating system with root permission
-```
-
-**`su`** Upgrades privilege to root. Root password will need to be set to use and will need to enter root password to be able to elevate.
-```bash
-su                            #elevate access to root
-sudo passwd                   #set new root password
-```
-
----
-
 ### Networking
 
-| Basic Commands | Description | Man Page |
-| --- | --- | --- |
-| **`ping`** | | [Link]() |
-| **`ifconfig`** | | [Link]() |
-| **`host`** | | [Link]() |
-| **`arp`** | | [Link]() |
-| **`dig`** | | [Link]() |
-| **`route`** | | [Link]() |
-| **`nslookup`** | | [Link]() |
-| **`netstat`** | | [Link]() |
-| **`wget`** | | [Link]() |
+<a id="net-basic"></a>
 
-| Advanced Commands | Description | Man Page |
-| --- | --- | --- |
-| **`scp`** | | [Link]() |
-| **`ftp`** | | [Link]() |
-| **`sftp`** | | [Link]() |
-| **`ssh`** | | [Link]() |
-| **`nmap`** | | [Link]() |
-| **`tcpdump`** | | [Link]() |
-| **`telnet`** | | [Link]() |
-| **`whois`** | | [Link]() |
-| **`traceroute`** | | [Link]() |
-| **`tracepath`** | | [Link]() |
-| **`ifup`** | | [Link]() |
-| **`ifdown`** | | [Link]() |
-| **`dhclient`** | | [Link]() |
+| Basic Commands | Description | Man Page | Example |
+| --- | --- | --- | --- |
+| **`ping`** | | [Link]() | [Jump to Example](#ping-anc) |
+| **`ifconfig`** | | [Link]() | [Jump to Example](#ifconfig-anc) |
+| **`host`** | | [Link]() | [Jump to Example](#host-anc) |
+| **`arp`** | | [Link]() | [Jump to Example](#arp-anc) |
+| **`dig`** | | [Link]() | [Jump to Example](#dig-anc) |
+| **`route`** | | [Link]() | [Jump to Example](#route-anc) |
+| **`nslookup`** | | [Link]() | [Jump to Example](#nslookup-anc) |
+| **`netstat`** | | [Link]() | [Jump to Example](#netstat-anc) |
+| **`wget`** | | [Link]() | [Jump to Example](#wget-anc) |
+
+<a id="net-inter"></a>
+
+| Intermediate Commands | Description | Man Page | Example |
+| --- | --- | --- | --- |
+| **`scp`** | | [Link]() | [Jump to Example](#scp-anc) |
+| **`ftp`** | | [Link]() | [Jump to Example](#ftp-anc) |
+| **`sftp`** | | [Link]() | [Jump to Example](#sftp-anc) |
+| **`ssh`** | | [Link]() | [Jump to Example](#ssh-anc) |
+| **`nmap`** | | [Link]() | [Jump to Example](#nmap-anc) |
+| **`tcpdump`** | | [Link]() | [Jump to Example](#tcpdump-anc) |
+| **`telnet`** | | [Link]() | [Jump to Example](#telnet-anc) |
+| **`whois`** | | [Link]() | [Jump to Example](#whois-anc) |
+| **`traceroute`** | | [Link]() | [Jump to Example](#traceroute-anc) |
+| **`tracepath`** | | [Link]() | [Jump to Example](#tracepath-anc) |
+| **`ifup`** | | [Link]() | [Jump to Example](#ifup-anc) |
+| **`ifdown`** | | [Link]() | [Jump to Example](#ifdown-anc) |
+| **`dhclient`** | | [Link]() | [Jump to Example](#dhclient-anc) |
+
+<a id="net-ex"></a>
 
 #### Examples
 
-| Command | Common Options |
+|<a id="ping-anc"></a> Command | Common Options |
 | --- | --- |
 | **`ping`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="ifconfig-anc"></a> Command | Common Options |
 | --- | --- |
 | **`ifconfig`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="host-anc"></a> Command | Common Options |
 | --- | --- |
 | **`host`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="arp-anc"></a> Command | Common Options |
 | --- | --- |
 | **`arp`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="dig-anc"></a> Command | Common Options |
 | --- | --- |
 | **`dig`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="route-anc"></a> Command | Common Options |
 | --- | --- |
 | **`route`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="nslookup-anc"></a> Command | Common Options |
 | --- | --- |
 | **`nslookup`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="netstat-anc"></a> Command | Common Options |
 | --- | --- |
 | **`netstat`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="scp-anc"></a> Command | Common Options |
 | --- | --- |
 | **`scp`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="ftp-anc"></a> Command | Common Options |
 | --- | --- |
 | **`ftp`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="sftp-anc"></a> Command | Common Options |
 | --- | --- |
 | **`sftp`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="ssh-anc"></a> Command | Common Options |
 | --- | --- |
 | **`ssh`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="nmap-anc"></a> Command | Common Options |
 | --- | --- |
 | **`nmap`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="tcpdump-anc"></a> Command | Common Options |
 | --- | --- |
 | **`tcpdump`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="telnet-anc"></a> Command | Common Options |
 | --- | --- |
 | **`telnet`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="whois-anc"></a> Command | Common Options |
 | --- | --- |
 | **`whois`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="traceroute-anc"></a> Command | Common Options |
 | --- | --- |
 | **`traceroute`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="tracepath-anc"></a> Command | Common Options |
 | --- | --- |
 | **`tracepath`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="ifup-anc"></a> Command | Common Options |
 | --- | --- |
 | **`ifup`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="ifdown-anc"></a> Command | Common Options |
 | --- | --- |
 | **`ifdown`** |  |
 ```bash
 
 ```
 
-| Command | Common Options |
+|<a id="dhclient-anc"></a> Command | Common Options |
 | --- | --- |
 | **`dhclient`** |  |
 ```bash
@@ -686,6 +717,8 @@ sudo passwd                   #set new root password
 ```
 
 ---
+
+## Other
 
 ### Random
 
@@ -701,7 +734,7 @@ clear         #clears the terminal
 exit          #exits terminal window
 ```
 
-_Other_
+### Shortcuts 
 
 Using **`Ctrl+C`** will safely stop current execution
 
@@ -711,8 +744,15 @@ Using **`Ctrl+Z`** will force stop current execution
 
 ## Resources
 
-**A great guide [here](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/) for more advanced linux commands. This guide is written for linux privilege escalation, but shows many different techiniques and commands that can be used to help gather more information on a linux system.**
+| Basic Guides | Description |
+| --- | --- |
+| [Guide](https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners) | A guide for commonly used Linux commands, aimed at beginners. |
+| [Guide](https://www-uxsup.csx.cam.ac.uk/pub/doc/suse/suse9.0/userguide-9.0/ch24s04.html) | A guide for a mix between basic and intermediate commonly used Linux commands. |
 
-**Another great guide [here](https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners) for basic commands.**
+| Intermediate Guides | Description |
+| --- | --- |
+| [Guide](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/) | A guide written for Linux privilege escalation. This guide does a great job describing many different ways to find information on Linux systems. |
 
-**Man pages found [here](http://man7.org/linux/man-pages/dir_all_by_section.html#man1)**
+| Other | Description |
+| --- | --- |
+| [Link](http://man7.org/linux/man-pages/dir_all_by_section.html#man1) | Linux man pages. |
