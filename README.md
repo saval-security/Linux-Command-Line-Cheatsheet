@@ -61,11 +61,10 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 | **`ln`** | Creates links between files. Hard links refer to the target file linking to the data on the disk of the source file. Soft links refer to the target file linking to the source file, which then links to the data on the disk. Hard link = Tfile -> data <- Sfile. Soft link = Tfile -> Sfile -> data. | [Link](http://man7.org/linux/man-pages/man1/ln.1.html) | [Jump to Example](#ln-anc) |
 | **`chmod`** | Changes file mode bits to allow for setting file permissions. Permissions for the three roles, user (u), group (g), and other(o), are set by using three letter, read (r), write (w), and execute (x). Octal permission notation can also be used, with 4 standing for read, 2 standing for write, and 1 standing for execute. So 754 would mean user can rwx, group can rx, and other can r. Usually need to use `sudo` before the command. | [Link](http://man7.org/linux/man-pages/man1/chmod.1.html) | [Jump to Example](#chmod-anc) |
 | **`chown`** | Change file owner and group. Usually need to run with `sudo`. | [Link](http://man7.org/linux/man-pages/man1/chown.1.html) | [Jump to Example](#chown-anc) |
-| **`gzip`** | Compresses contents of files, or expands compressed files. | [Link](https://www.systutorials.com/docs/linux/man/1-gzip/) | [Jump to Example](#gzip-anc) |
+| **`gzip`** | Compresses contents of files, or expands compressed files. If wanting to compress multiple files into one compressed directory, use tar. | [Link](https://www.systutorials.com/docs/linux/man/1-gzip/) | [Jump to Example](#gzip-anc) |
 | **`tar`** | Archives file(s) (Compression is optional). | [Link](http://man7.org/linux/man-pages/man1/tar.1.html) | [Jump to Example](#tar-anc) |
 | **`zip`** | Package and compress (archive) files. | [Link](https://www.systutorials.com/docs/linux/man/1-zip/) | [Jump to Example](#zip-anc) |
 | **`unzip`** | Extracts compressed files in a ZIP archive. | [Link](https://www.systutorials.com/docs/linux/man/1-unzip/) | [Jump to Example](#unzip-anc) |
-| **`diff`** | Compares the content of two files. Output is all lines that do not match. | [Link](http://man7.org/linux/man-pages/man1/diff.1.html) | [Jump to Example](#diff-anc) |
 
 <a id="fa-ex"></a>
 
@@ -156,6 +155,8 @@ ln -s /root/Desktop/script.sh /bin/scriptcommand    #creates a soft link between
 | --- | --- |
 | **`chmod [option(s)] [permissions] filename`** | -R   Changes permissions recursively for all files and directories. |
 ```bash
+#Roles: Users = u, Group = g, Other = o
+#Permissions: Read = r,4; Write = w,2; Execute = x,1
 chmod +x secret.sh                                #gives execute permission to all roles for the file secret.sh
 chmod u+rx,g+r secret.sh                          #gives read and execute permission to user, and read permission to group for the file secret.sh
 chmod u-x secret.sh                               #removes execute permission for user for the file secret.sh
@@ -176,9 +177,11 @@ chmod -R root:secretgroup /root/Desktop/secrets_directory     #recursively chang
 
 |<a id="gzip-anc"></a> Command | Common Options |
 | --- | --- |
-| **`gzip`** |  |
+| **`gzip [options(s)] filename(s)`** | -d   Decompresses packed gzip files<br> -c   Keeps original file and creates a compressed copy. |
 ```bash
-
+gzip secrets.txt                          #Will compress the file secrets.txt and create secrets.txt.gz. This will remove the original file.
+gzip -c secrets.txt > secrets.txt.gz      #Will create a compressed copy of secrets.txt
+gzip -d secrets.txt.gz                    #Will decompress secrets.txt.gz
 ```
 
 |<a id="tar-anc"></a> Command | Common Options |
@@ -197,23 +200,17 @@ tar -rvf scrts.tar moresecrets.txt            #adds the file moresecrets.txt to 
 
 |<a id="zip-anc"></a> Command | Common Options |
 | --- | --- |
-| **`zip`** |  |
+| **`zip [option(s)] zipfile file(s)`** |-r   Recursively compresses an entire direcory. |
 ```bash
-
+zip secrets.zip secrets.txt                             #creates a compressed archive of scerects.txt called secrets.zip
+zip -r secrets.zip /root/Desktop/secrets_directory      #recursively compresses the entire folder into secrets.zip
 ```
 
 |<a id="unzip-anc"></a> Command | Common Options |
 | --- | --- |
-| **`unzip`** |  |
+| **`unzip zipfile`** | Commonly used without options  |
 ```bash
-
-```
-
-|<a id="diff-anc"></a> Command | Common Options |
-| --- | --- |
-| **`diff`** |  |
-```bash
-
+unzip secrets.zip                               #extracts the files in secrets.zip
 ```
 
 ---
@@ -227,7 +224,7 @@ tar -rvf scrts.tar moresecrets.txt            #adds the file moresecrets.txt to 
 | **`pwd`** | Displays current working directory. | [Link](http://man7.org/linux/man-pages/man1/pwd.1.html) | [Jump to Example](#pwd-anc) |
 | **`cd`** | Traverse to specific directory. | none | [Jump to Example](#cd-anc) |
 | **`ls`** | Prints directories and files in a directory. | [Link](http://man7.org/linux/man-pages/man1/ls.1.html) | [Jump to Example](#ls-anc) |
-| **`lsof`** | | [Link]() | [Jump to Example](#lsof-anc) |
+| **`lsof`** | Lists all open files. | [Link](http://man7.org/linux/man-pages/man8/lsof.8.html) | [Jump to Example](#lsof-anc) |
 | **`mkdir`** | Creates directory. | [Link](http://man7.org/linux/man-pages/man1/mkdir.1.html) | [Jump to Example](#mkdir-anc) |
 | **`rmdir`** | Removes empty directory. | [Link](http://man7.org/linux/man-pages/man1/rmdir.1.html) | [Jump to Example](#rmdir-anc) |
 | **`locate`** | Locates file on system based on the file name database. Will need to use **`updatedb`** if file was created after last database update. | [Link](http://man7.org/linux/man-pages/man1/locate.1.html) | [Jump to Example](#locate-anc) |
@@ -237,10 +234,10 @@ tar -rvf scrts.tar moresecrets.txt            #adds the file moresecrets.txt to 
 
 | Intermediate Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
-| **`find`** | | [Link]() | [Jump to Example](#find-anc) |
-| **`grep`** | | [Link]() | [Jump to Example](#grep-anc) |
-| **`mount`** | | [Link]() | [Jump to Example](#mount-anc) |
-| **`umount`** | | [Link]() | [Jump to Example](#umount-anc) |
+| **`find`** | Searches for files in a directory hierarchy. | [Link](http://man7.org/linux/man-pages/man1/find.1.html) | [Jump to Example](#find-anc) |
+| **`grep`** | Prints lines matching a pattern | [Link](http://man7.org/linux/man-pages/man1/grep.1.html) | [Jump to Example](#grep-anc) |
+| **`mount`** | Mount filesystems | [Link](http://man7.org/linux/man-pages/man2/mount.2.html) | [Jump to Example](#mount-anc) |
+| **`umount`** | Unmount filesystems | [Link](http://man7.org/linux/man-pages/man2/umount.2.html) | [Jump to Example](#umount-anc) |
 
 <a id="fs-ex"></a>
 
@@ -248,14 +245,14 @@ tar -rvf scrts.tar moresecrets.txt            #adds the file moresecrets.txt to 
 
 |<a id="pwd-anc"></a> Command | Common Options |
 | --- | --- |
-| **`pwd`** | Command that doesn't use options |
+| **`pwd`** | Command that doesn't use options. |
 ```bash
 pwd               #displays current directory
 ```
 
 |<a id="cd-anc"></a> Command | Common Options |
 | --- | --- |
-| **`cd [directory]`** | |
+| **`cd [directory]`** | Commonly used without any options. |
 ```bash
 cd /root/Desktop  #go to Desktop folder under root
 cd ..             #take a step up the directory tree, would return to /root/
@@ -264,7 +261,7 @@ cd                #return to home directory no matter where location, returns to
 
 |<a id="ls-anc"></a> Command | Common Options |
 | --- | --- |
-| **`ls`** | |
+| **`ls [option(s)] [directory]`** | -l   Prints directory with permissions.<br> -a    Prints directory including hidden files. |
 ```bash
 ls                      #prints directories/files listed under current directory
 ls -l                   #prints current directories/files with permissions
@@ -275,14 +272,14 @@ ls -r /root/Desktop     #prints /root/Desktop and recursively prints all directo
 
 |<a id="lsof-anc"></a> Command | Common Options |
 | --- | --- |
-| **`lsof`** |  |
+| **`lsof`** | Commonly used without any options. (Note: can be used with options for various system relate tasks.) |
 ```bash
-
+lsof                    #Prints list of all open files.
 ```
 
 |<a id="mkdir-anc"></a> Command | Common Options |
 | --- | --- |
-| **`mkdir`** | |
+| **`mkdir directoryname`** | Commonly used without any options. |
 ```bash
 mkdir folder1                 #creates directory named 'folder1' under current directory
 mkdir /root/Desktop/folder1   #creates directory named 'folder1' under /root/Desktop
@@ -290,15 +287,16 @@ mkdir /root/Desktop/folder1   #creates directory named 'folder1' under /root/Des
 
 |<a id="rmdir-anc"></a> Command | Common Options |
 | --- | --- |
-| **`rmdir`** | |
+| **`rmdir directoryname`** | Commonly used without any options. |
 ```bash
+#Note: only removes empty directories. Use 'rm' command for nonempty directories.
 rmdir folder1                 #removes empty directory 'folder1' in current directory
 rmdir /root/Desktop/folder1   #removes empty directory 'folder1' under /root/Desktop
 ```
 
 |<a id="locate-anc"></a> Command | Common Options |
 | --- | --- |
-| **`locate`** | -i   Ignores case <br> |
+| **`locate [option(s)] searchname`** | -i   Ignores case <br> |
 ```bash
 locate secrets.txt            #will search file name database for files with secrets.txt in name
 locate -i secrets.txt         #will search file name database for any file, regardless of case, with secrets.txt in name
