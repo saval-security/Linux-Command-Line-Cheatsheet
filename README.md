@@ -62,7 +62,7 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 | **`chmod`** | Changes file mode bits to allow for setting file permissions. Permissions for the three roles, user (u), group (g), and other(o), are set by using three letter, read (r), write (w), and execute (x). Octal permission notation can also be used, with 4 standing for read, 2 standing for write, and 1 standing for execute. So 754 would mean user can rwx, group can rx, and other can r. Usually need to use `sudo` before the command. | [Link](http://man7.org/linux/man-pages/man1/chmod.1.html) | [Jump to Example](#chmod-anc) |
 | **`chown`** | Change file owner and group. Usually need to run with `sudo`. | [Link](http://man7.org/linux/man-pages/man1/chown.1.html) | [Jump to Example](#chown-anc) |
 | **`gzip`** | Compresses contents of files, or expands compressed files. If wanting to compress multiple files into one compressed directory, use tar. | [Link](https://www.systutorials.com/docs/linux/man/1-gzip/) | [Jump to Example](#gzip-anc) |
-| **`tar`** | Archives file(s) (Compression is optional). | [Link](http://man7.org/linux/man-pages/man1/tar.1.html) | [Jump to Example](#tar-anc) |
+| **`tar`** | Archives file(s) (Compression is optional). Can also extract tar files. | [Link](http://man7.org/linux/man-pages/man1/tar.1.html) | [Jump to Example](#tar-anc) |
 | **`zip`** | Package and compress (archive) files. | [Link](https://www.systutorials.com/docs/linux/man/1-zip/) | [Jump to Example](#zip-anc) |
 | **`unzip`** | Extracts compressed files in a ZIP archive. | [Link](https://www.systutorials.com/docs/linux/man/1-unzip/) | [Jump to Example](#unzip-anc) |
 
@@ -234,10 +234,10 @@ unzip secrets.zip                               #extracts the files in secrets.z
 
 | Intermediate Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
-| **`find`** | Searches for files in a directory hierarchy. | [Link](http://man7.org/linux/man-pages/man1/find.1.html) | [Jump to Example](#find-anc) |
-| **`grep`** | Prints lines matching a pattern | [Link](http://man7.org/linux/man-pages/man1/grep.1.html) | [Jump to Example](#grep-anc) |
-| **`mount`** | Mount filesystems | [Link](http://man7.org/linux/man-pages/man2/mount.2.html) | [Jump to Example](#mount-anc) |
-| **`umount`** | Unmount filesystems | [Link](http://man7.org/linux/man-pages/man2/umount.2.html) | [Jump to Example](#umount-anc) |
+| **`find`** | Searches for files in a directory hierarchy. Find can be complex to use, as there are many different options/expressions one can use to find and/or manipulate files. Very useful command, there's plenty of additional guides online for how to use find if what's provide isn't good enough. | [Link](http://man7.org/linux/man-pages/man1/find.1.html) | [Jump to Example](#find-anc) |
+| **`grep`** | Prints lines matching a pattern. | [Link](http://man7.org/linux/man-pages/man1/grep.1.html) | [Jump to Example](#grep-anc) |
+| **`mount`** | Mount filesystems. | [Link](http://man7.org/linux/man-pages/man2/mount.2.html) | [Jump to Example](#mount-anc) |
+| **`umount`** | Unmount filesystems. | [Link](http://man7.org/linux/man-pages/man2/umount.2.html) | [Jump to Example](#umount-anc) |
 
 <a id="fs-ex"></a>
 
@@ -311,8 +311,10 @@ updatedb                      #updates file name database for locate
 
 |<a id="find-anc"></a> Command | Common Options |
 | --- | --- |
-| **`find`** |  |
+| **`find [option(s)] search_directory -[expression_option] search_expression`** | -name    Expression for name of file.<br> -iname   Same as '-name' but case doesn't matter.<br>  |
 ```bash
+#the '.' means current working directory and all subdirectories
+find . -name secrets.txt                              #Will search through entire working directory and subdirectories for the file named secrets.txt
 
 ```
 
