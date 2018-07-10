@@ -30,7 +30,7 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 - [Other](#other)
   - [Random](#random)
   - [Shortcuts](#shortcuts)
-- [All Commands in Alphabetical Order](all-commands-in-alphabetical-order)
+- [All Commands in Alphabetical Order](#all-commands-in-alphabetical-order)
 - [Resources](#resources)
   
 ---
