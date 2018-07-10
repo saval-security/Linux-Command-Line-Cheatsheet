@@ -234,7 +234,7 @@ unzip secrets.zip                               #extracts the files in secrets.z
 
 | Intermediate Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
-| **`find`** | Searches for files in a directory hierarchy. Find can be complex to use, as there are many different options/expressions one can use to find and/or manipulate files. Very useful command, there's plenty of additional guides online for how to use find if what's provide isn't good enough. | [Link](http://man7.org/linux/man-pages/man1/find.1.html) | [Jump to Example](#find-anc) |
+| **`find`** | Searches for files in a directory hierarchy. Find can be complex to use, as there are many different options/expressions one can use to find and/or manipulate files. Very useful command, there's plenty of additional guides online for how to use find if what's provide isn't enough. | [Link](http://man7.org/linux/man-pages/man1/find.1.html) | [Jump to Example](#find-anc) |
 | **`grep`** | Prints lines matching a pattern. | [Link](http://man7.org/linux/man-pages/man1/grep.1.html) | [Jump to Example](#grep-anc) |
 | **`mount`** | Mount filesystems. | [Link](http://man7.org/linux/man-pages/man2/mount.2.html) | [Jump to Example](#mount-anc) |
 | **`umount`** | Unmount filesystems. | [Link](http://man7.org/linux/man-pages/man2/umount.2.html) | [Jump to Example](#umount-anc) |
@@ -350,34 +350,35 @@ find . -name secrets.txt                              #Will search through entir
 
 | Basic Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
-| **`uname`** | | [Link]() | [Jump to Example](#uname-anc) |
-| **`hostname`** | | [Link]() | [Jump to Example](#hostname-anc) |
-| **`users`** | | [Link]() | [Jump to Example](#users-anc) |
-| **`who`** | | [Link]() | [Jump to Example](#who-anc) |
-| **`whoami`** | | [Link]() | [Jump to Example](#whoami-anc) |
-| **`sudo`** | Using sudo before another command will run it with root privilege. Will need to enter root password after running command. | [Link]() | [Jump to Example](#sudo-anc) |
-| **`su`** | Upgrades privilege to root. Root password will need to be set to use and will need to enter root password to be able to elevate. | [Link]() | [Jump to Example](#su-anc) |
-| **`date`** | | [Link]() | [Jump to Example](#date-anc) |
-| **`uptime`** | | [Link]() | [Jump to Example](#uptime-anc) |
-| **`passwd`** | | [Link]() | [Jump to Example](#passwd-anc) |
-| **`apt-get`** | | [Link]() | [Jump to Example](#apt-get-anc) |
-| **`halt`** | | [Link]() | [Jump to Example](#halt-anc) |
-| **`reboot`** | | [Link]() | [Jump to Example](#reboot-anc) |
+| **`uname`** | Prints system information. | [Link](http://man7.org/linux/man-pages/man1/uname.1.html) | [Jump to Example](#uname-anc) |
+| **`hostname`** | Prints system's hostname. | [Link](http://man7.org/linux/man-pages/man1/hostname.1.html) | [Jump to Example](#hostname-anc) |
+| **`users`** | Prints all the usernames of users currently logged into host machine. | [Link](http://man7.org/linux/man-pages/man1/users.1.html) | [Jump to Example](#users-anc) |
+| **`who`** | Displays who is logged in. | [Link](http://man7.org/linux/man-pages/man1/who.1.html) | [Jump to Example](#who-anc) |
+| **`whoami`** | Prints current userid. | [Link](http://man7.org/linux/man-pages/man1/whoami.1.html) | [Jump to Example](#whoami-anc) |
+| **`sudo`** | Using sudo before another command will run it with root privilege. Will need to enter root password after running command. | [Link](https://www.systutorials.com/docs/linux/man/8-sudo/) | [Jump to Example](#sudo-anc) |
+| **`su`** | Allows user to run commands with a substitute user or group. Mostly used to elevate terminal session to root. | [Link](http://man7.org/linux/man-pages/man1/su.1.html) | [Jump to Example](#su-anc) |
+| **`date`** | Print or set the system date and time. | [Link](http://man7.org/linux/man-pages/man1/date.1.html) | [Jump to Example](#date-anc) |
+| **`uptime`** | Displays how long the system has been running. | [Link](http://man7.org/linux/man-pages/man1/uptime.1.html) | [Jump to Example](#uptime-anc) |
+| **`passwd`** | Change user's password. | [Link](http://man7.org/linux/man-pages/man1/passwd.1.html) | [Jump to Example](#passwd-anc) |
+| **`apt-get`** | APT package handling utility for Debian based systems, such as Ubuntu. | [Link](https://www.systutorials.com/docs/linux/man/8-apt-get/) | [Jump to Example](#apt-get-anc) |
+| **`halt`** | Used to halt a system. | [Link](http://man7.org/linux/man-pages/man8/halt.8.html) | [Jump to Example](#halt-anc) |
+| **`poweroff`** | Used to power down a system. | [Link](http://man7.org/linux/man-pages/man8/poweroff.8.html) | [Jump to Examples](poweroff-anc) |
+| **`reboot`** | Used to reboot a system. | [Link](http://man7.org/linux/man-pages/man8/reboot.8.html) | [Jump to Example](#reboot-anc) |
 
 <a id="s-inter"></a>
 
 | Intermediate Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
-| **`top`** | | [Link]() | [Jump to Example](#top-anc) |
-| **`last`** | | [Link]() | [Jump to Example](#last-anc) |
-| **`ps`** | | [Link]() | [Jump to Example](#ps-anc) |
-| **`df`** | | [Link]() | [Jump to Example](#df-anc) |
-| **`du`** | | [Link]() | [Jump to Example](#du-anc) |
-| **`free`** | | [Link]() | [Jump to Example](#free-anc) |
-| **`crontab`** | | [Link]() | [Jump to Example](#crontab-anc) |
-| **`service`** | | [Link]() | [Jump to Example](#service-anc) |
-| **`kill`** | | [Link]() | [Jump to Example](#kill-anc) |
-| **`killall`** | | [Link]() | [Jump to Example](#killall-anc) |
+| **`top`** | Displays processes. | [Link](http://man7.org/linux/man-pages/man1/top.1.html) | [Jump to Example](#top-anc) |
+| **`last`** | Lists logins on the system. | [Link](http://man7.org/linux/man-pages/man1/last.1.html) | [Jump to Example](#last-anc) |
+| **`ps`** | Reports a snapshot of current processes. | [Link](http://man7.org/linux/man-pages/man1/ps.1.html) | [Jump to Example](#ps-anc) |
+| **`df`** | Reports file system disk space usage. Displays the usage of each mounted system. | [Link](http://man7.org/linux/man-pages/man1/df.1.html) | [Jump to Example](#df-anc) |
+| **`du`** | Estimated file space usage. | [Link](http://man7.org/linux/man-pages/man1/du.1.html) | [Jump to Example](#du-anc) |
+| **`free`** | Displays amount of free and used memory in the system. | [Link](http://man7.org/linux/man-pages/man1/free.1.html) | [Jump to Example](#free-anc) |
+| **`crontab`** | Maintains crontab files for individual users. This allows scheduled jobs to be run. | [Link](http://man7.org/linux/man-pages/man1/crontab.1.html) | [Jump to Example](#crontab-anc) |
+| **`service`** | Allows for starting and stopping of services. | [Link](https://www.systutorials.com/docs/linux/man/8-service/) | [Jump to Example](#service-anc) |
+| **`kill`** | Used to terminate a process. | [Link](http://man7.org/linux/man-pages/man1/kill.1.html) | [Jump to Example](#kill-anc) |
+| **`killall`** | Used to terminate a process by name. | [Link](http://man7.org/linux/man-pages/man1/killall.1.html) | [Jump to Example](#killall-anc) |
 
 <a id="s-ex"></a>
 
@@ -468,6 +469,13 @@ sudo passwd                   #set new root password
 
 ```
 
+|<a id="poweroff-anc"></a> Command | Common Options |
+| --- | --- |
+| **`poweroff`** |  |
+```bash
+
+```
+
 |<a id="reboot-anc"></a> Command | Common Options |
 | --- | --- |
 | **`reboot`** |  |
@@ -553,10 +561,10 @@ sudo passwd                   #set new root password
 
 | Basic Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
-| **`ping`** | | [Link]() | [Jump to Example](#ping-anc) |
-| **`ifconfig`** | | [Link]() | [Jump to Example](#ifconfig-anc) |
-| **`host`** | | [Link]() | [Jump to Example](#host-anc) |
-| **`arp`** | | [Link]() | [Jump to Example](#arp-anc) |
+| **`ping`** | Sends ICMP ECHO_REQUEST to network host. Useful for determining if a system i sup, or if a system has network connection. | [Link](http://man7.org/linux/man-pages/man8/ping.8.html) | [Jump to Example](#ping-anc) |
+| **`ifconfig`** | Displays current network information and/or configures a network interface. | [Link](http://man7.org/linux/man-pages/man8/ifconfig.8.html) | [Jump to Example](#ifconfig-anc) |
+| **`host`** | DNS lookup utility. | [Link](https://www.systutorials.com/docs/linux/man/1-host/) | [Jump to Example](#host-anc) |
+| **`arp`** | Address Resolution Protocol. Used to convert between Layer2 hardware addresses and IPv4 protocol addresses on directly connected networks. | [Link](http://man7.org/linux/man-pages/man7/arp.7.html) | [Jump to Example](#arp-anc) |
 | **`dig`** | | [Link]() | [Jump to Example](#dig-anc) |
 | **`route`** | | [Link]() | [Jump to Example](#route-anc) |
 | **`nslookup`** | | [Link]() | [Jump to Example](#nslookup-anc) |
