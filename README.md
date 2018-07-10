@@ -30,6 +30,7 @@ A curated list of commonly used linux commands, easily accessible in one locatio
 - [Other](#other)
   - [Random](#random)
   - [Shortcuts](#shortcuts)
+- [All Commands in Alphabetical Order](all-commands-in-alphabetical-order)
 - [Resources](#resources)
   
 ---
@@ -202,7 +203,7 @@ tar -rvf scrts.tar moresecrets.txt            #adds the file moresecrets.txt to 
 | --- | --- |
 | **`zip [option(s)] zipfile file(s)`** |-r   Recursively compresses an entire direcory. |
 ```bash
-zip secrets.zip secrets.txt                             #creates a compressed archive of scerects.txt called secrets.zip
+zip secrets.zip secrets.txt                             #creates a compressed archive of secrets.txt called secrets.zip
 zip -r secrets.zip /root/Desktop/secrets_directory      #recursively compresses the entire folder into secrets.zip
 ```
 
@@ -565,22 +566,22 @@ sudo passwd                   #set new root password
 | **`ifconfig`** | Displays current network information and/or configures a network interface. | [Link](http://man7.org/linux/man-pages/man8/ifconfig.8.html) | [Jump to Example](#ifconfig-anc) |
 | **`host`** | DNS lookup utility. | [Link](https://www.systutorials.com/docs/linux/man/1-host/) | [Jump to Example](#host-anc) |
 | **`arp`** | Address Resolution Protocol. Used to convert between Layer2 hardware addresses and IPv4 protocol addresses on directly connected networks. | [Link](http://man7.org/linux/man-pages/man7/arp.7.html) | [Jump to Example](#arp-anc) |
-| **`dig`** | | [Link]() | [Jump to Example](#dig-anc) |
-| **`route`** | | [Link]() | [Jump to Example](#route-anc) |
-| **`nslookup`** | | [Link]() | [Jump to Example](#nslookup-anc) |
-| **`netstat`** | | [Link]() | [Jump to Example](#netstat-anc) |
-| **`wget`** | | [Link]() | [Jump to Example](#wget-anc) |
+| **`dig`** | DNS server lookup utility. | [Link](https://www.systutorials.com/docs/linux/man/1-dig/) | [Jump to Example](#dig-anc) |
+| **`route`** | Shows the routing table. Can also be used to setup static routes. | [Link](http://man7.org/linux/man-pages/man8/route.8.html) | [Jump to Example](#route-anc) |
+| **`nslookup`** | Queries internet name server. Can be used interactively. | [Link](https://www.systutorials.com/docs/linux/man/1-nslookup/) | [Jump to Example](#nslookup-anc) |
+| **`netstat`** | Prints network information, such as connections, routing tables, and interface statistics. | [Link](http://man7.org/linux/man-pages/man8/netstat.8.html) | [Jump to Example](#netstat-anc) |
+| **`wget`** | Command line network downloader. Used to pull files from internet sources using the command line. | [Link](http://man7.org/linux/man-pages/man1/wget.1.html) | [Jump to Example](#wget-anc) |
 
 <a id="net-inter"></a>
 
 | Intermediate Commands | Description | Man Page | Example |
 | --- | --- | --- | --- |
-| **`scp`** | | [Link]() | [Jump to Example](#scp-anc) |
-| **`ftp`** | | [Link]() | [Jump to Example](#ftp-anc) |
-| **`sftp`** | | [Link]() | [Jump to Example](#sftp-anc) |
-| **`ssh`** | | [Link]() | [Jump to Example](#ssh-anc) |
-| **`nmap`** | | [Link]() | [Jump to Example](#nmap-anc) |
-| **`tcpdump`** | | [Link]() | [Jump to Example](#tcpdump-anc) |
+| **`scp`** | Secure copy for remote file transfer. Uses ssh port 22 for copying remote files. | [Link](http://man7.org/linux/man-pages/man1/scp.1.html) | [Jump to Example](#scp-anc) |
+| **`ftp`** | File transfer protocol. Used to transfer files remotely. No encryption, uses port 21. | [Link](https://www.systutorials.com/docs/linux/man/1-ftp/) | [Jump to Example](#ftp-anc) |
+| **`sftp`** | Secure File Transfer Protocol. Used to transfer files remotely, but uses an encrypted ssh transport to transfer the data. Uses port 22. | [Link](http://man7.org/linux/man-pages/man1/sftp.1.html) | [Jump to Example](#sftp-anc) |
+| **`ssh`** | SSH is used to remotely login to systems, which allows users to remotely execute commands on a system. The connection is secured and encrypted, and uses port 22. | [Link](http://man7.org/linux/man-pages/man1/ssh.1.html) | [Jump to Example](#ssh-anc) |
+| **`nmap`** | Network exploration tool and port scanner. Nmap has a ton of options to use. It can be used to scan systems, or even entire subnets, to find what ports are open and which services are running on each system. | [Link](http://man7.org/linux/man-pages/man1/nmap.1.html) | [Jump to Example](#nmap-anc) |
+| **`tcpdump`** | Dumps traffic on a network. Allows user to capture packets for further examination. | [Link](http://man7.org/linux/man-pages/man1/tcpdump.1.html) | [Jump to Example](#tcpdump-anc) |
 | **`telnet`** | | [Link]() | [Jump to Example](#telnet-anc) |
 | **`whois`** | | [Link]() | [Jump to Example](#whois-anc) |
 | **`traceroute`** | | [Link]() | [Jump to Example](#traceroute-anc) |
@@ -763,6 +764,86 @@ exit          #exits terminal window
 Using **`Ctrl+C`** will safely stop current execution
 
 Using **`Ctrl+Z`** will force stop current execution
+
+---
+
+## All Commands in Alphabetical Order
+
+- [apt-get](#apt-get-anc)
+- [arp](#arp-anc)
+- [cat](#cat-anc)
+- [cd](#cd-anc)
+- [chmod](#chmod-anc)
+- [chown](#chown-anc)
+- [cp](#cp-anc)
+- [crontab](#crontab-anc)
+- [date](#date-anc)
+- [df](#df-anc)
+- [dhclient](#dhclient-anc)
+- [dig](#dig-anc)
+- [du](#du-anc)
+- [echo](#echo-anc)
+- [file](#file-anc)
+- [find](#find-anc)
+- [free](#free-anc)
+- [ftp](#ftp-anc)
+- [grep](#grep-anc)
+- [gzip](#gzip-anc)
+- [halt](#halt-anc)
+- [host](#host-anc)
+- [hostname](#hostname-anc)
+- [ifconfig](#ifconfig-anc)
+- [ifdown](#ifdown-anc)
+- [ifup](#ifup-anc)
+- [kill](#kill-anc)
+- [killall](#killall-anc)
+- [last](#last-anc)
+- [less](#less-anc)
+- [ln](#ln-anc)
+- [locate](#locate-anc)
+- [ls](#ls-anc)
+- [lsof](#lsof-anc)
+- [mkdir](#mkdir-anc)
+- [mount](#mount-anc)
+- [mv](#mv-anc)
+- [nano](#nano-anc)
+- [netstat](#netstat-anc)
+- [nmap](#nmap-anc)
+- [nslookup](#nslookup-anc)
+- [passwd](#passwd-anc)
+- [ping](#ping-anc)
+- [poweroff](#poweroff-anc)
+- [ps](#ps-anc)
+- [pwd](#pwd-anc)
+- [reboot](#reboot-anc)
+- [rm](#rm-anc)
+- [rmdir](#rmdir-anc)
+- [route](#route-anc)
+- [scp](#scp-anc)
+- [service](#service-anc)
+- [sftp](#sftp-anc)
+- [ssh](#ssh-anc)
+- [su](#su-anc)
+- [sudo](#sudo-anc)
+- [tar](#tar-anc)
+- [tcpdump](#tcpdump-anc)
+- [telnet](#telnet-anc)
+- [top](#top-anc)
+- [touch](#touch-anc)
+- [tracepath](#tracepath-anc)
+- [traceroute](#traceroute-anc)
+- [umount](#umount-anc)
+- [uname](#uname-anc)
+- [unzip](#unzip-anc)
+- [updatedb](#updatedb-anc)
+- [uptime](#uptime-anc)
+- [users](#users-anc)
+- [vi](#nano-anc)
+- [wget](#wget-anc)
+- [who](#who-anc)
+- [whoami](#whoami-anc)
+- [whois](#whois-anc)
+- [zip](#zip-anc)
 
 ---
 
